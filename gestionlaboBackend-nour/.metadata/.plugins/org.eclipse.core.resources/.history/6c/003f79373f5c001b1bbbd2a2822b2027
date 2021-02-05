@@ -1,0 +1,7 @@
+spring.application.name=zuul-server
+#config
+#url du serveur de configuration
+spring.cloud.config.uri=http://localhost:8090
+server.port=8762
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=6000
+ribbon.ReadTimeout=10000

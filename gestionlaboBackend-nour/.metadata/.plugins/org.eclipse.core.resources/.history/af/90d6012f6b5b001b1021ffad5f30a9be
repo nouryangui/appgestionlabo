@@ -1,0 +1,17 @@
+package com.eureka.auth.services;
+
+import org.springframework.stereotype.Service;
+
+import com.eureka.auth.entities.AppUser;
+import com.eureka.auth.entities.Role;
+@Service
+public interface AccountService {
+	public AppUser saveUser(AppUser user);
+
+	public Role saveRole(Role appRole);
+
+	public AppUser findUserByUserName(String username);
+	public AppUser findUserByEmail(String email);
+
+	public void addRoleToUser(String username, String role);
+}

@@ -1,0 +1,124 @@
+package com.eureka.zuul.security;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.auth0.jwt.interfaces.JWTVerifier;
+import com.eureka.common.security.JwtConfig; 
+public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
+
+	private final JwtConfig jwtConfig;
+
+	public JwtTokenAuthenticationFilter(JwtConfig jwtConfig) {
+		this.jwtConfig = jwtConfig;
+	}
+
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+			throws ServletException, IOException {
+		/*response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Headers","Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, authorization");
+		response.addHeader("Access-Control-Expose-Headers","Access-Control-Allow-Origin, Access-Control-Allow-Credentials, authorization");
+		response.addHeader("Access-Control-Allow-Methods","GET, POST, PUT, DELETE, PATCH");
+		if (request.getMethod().equals("OPTIONS")) {
+			System.out.println("OPTIONS" + request.getMethod() + "jjj" + request.getRequestURI());
+			response.setStatus(HttpServletResponse.SC_OK);
+		} else if (request.getRequestURI().equals("/auth")) {
+			System.out.println("login" + request.getMethod());
+			chain.doFilter(request, response);
+			return;
+		} else {
+
+			// 1. get the authentication header. Tokens are supposed to be passed in the
+			// authentication header
+			String header = request.getHeader(jwtConfig.getHeader());
+			System.out.print("token:" + header);
+
+			// 2. validate the header and check the prefix
+			if (header == null || !header.startsWith(jwtConfig.getPrefix())) {
+				chain.doFilter(request, response); // If not valid, go to the next filter.
+				System.out.println("*********");
+
+				return;
+			}
+
+			String token = header.replace(jwtConfig.getPrefix(), "");
+			try {
+				Claims claims = Jwts.parser().setSigningKey(jwtConfig.getSecret().getBytes()).parseClaimsJws(token)
+						.getBody();
+
+				String username = claims.getSubject();
+				if (username != null) {
+					@SuppressWarnings("unchecked")
+					List<String> authorities = (List<String>) claims.get("authorities");
+
+					UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(username, null,
+							authorities.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
+
+					SecurityContextHolder.getContext().setAuthentication(auth);
+				}
+
+			} catch (Exception e) {
+
+				SecurityContextHolder.clearContext();
+			}
+
+			chain.doFilter(request, response);
+		}*/
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Headers","Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, authorization");
+		response.addHeader("Access-Control-Expose-Headers","Access-Control-Allow-Origin, Access-Control-Allow-Credentials, authorization");
+		response.addHeader("Access-Control-Allow-Methods","GET, POST, PUT, DELETE, PATCH");
+		if(request.getMethod().equals("OPTIONS")) {
+			System.out.println("OPTIONS"+request.getMethod()+"jjj"+request.getRequestURI());
+			response.setStatus(HttpServletResponse.SC_OK);
+		}
+		else if (request.getRequestURI().equals("/login"))
+		{
+			System.out.println("login"+request.getMethod());
+			chain.doFilter(request, response);
+			return;
+		}
+		else
+		{
+			System.out.println("moun");
+			String jwtToken = request.getHeader(jwtConfig.getHeader());
+			System.out.println("jwtToken="+jwtToken);
+			if((jwtToken == null ) ||(!jwtToken.startsWith(jwtConfig.getPrefix())))
+			{
+				chain.doFilter(request, response);
+				return;
+			}
+			JWTVerifier jwtVerifier =  JWT.require(Algorithm.HS512(jwtConfig.getSecret())).build();
+			System.out.println("verify"+jwtToken.substring(jwtConfig.getPrefix().length()));
+			DecodedJWT decodeJWT = jwtVerifier.verify(jwtToken.substring(jwtConfig.getPrefix().length()));
+			String userName = decodeJWT.getSubject();
+			List<String> roles = decodeJWT.getClaims().get("roles").asList(String.class);
+			System.out.println("userName"+userName);
+			System.out.println("rules"+roles);
+			Collection<GrantedAuthority> authorities = new ArrayList<>();
+			roles.forEach(role ->{
+				authorities.add(new SimpleGrantedAuthority(role));
+			});
+			UsernamePasswordAuthenticationToken user = new UsernamePasswordAuthenticationToken(userName, null, authorities);
+			SecurityContextHolder.getContext().setAuthentication(user);
+			chain.doFilter(request, response);
+		}
+	}
+}

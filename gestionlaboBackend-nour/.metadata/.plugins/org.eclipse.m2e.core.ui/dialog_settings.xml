@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="D:\microservices-spring-boot-master\publication"/>
+			<item value="D:\microservices-spring-boot-master\event"/>
+			<item value="D:\microservices-spring-boot-master\tool"/>
+			<item value="D:\microservices-spring-boot-master\configServer"/>
+			<item value="D:\microservices-spring-boot-master\member"/>
+			<item value="D:\microservices-spring-boot-master\spring-eureka-zuul"/>
+			<item value="D:\microservices-spring-boot-master\spring-eureka-gallery"/>
+			<item value="D:\microservices-spring-boot-master\spring-eureka-auth"/>
+			<item value="D:\microservices-spring-boot-master\spring-eureka-common"/>
+			<item value="D:\microservices-spring-boot-master\spring-eureka-server"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

@@ -1,0 +1,9 @@
+package com.eureka.auth.entities;
+
+public class AppUser {
+	private Long id;
+    private String username, password;
+    private String role;
+    
+
+}

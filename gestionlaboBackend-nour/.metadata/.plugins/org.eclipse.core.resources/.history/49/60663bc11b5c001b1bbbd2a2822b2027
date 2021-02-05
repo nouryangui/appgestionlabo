@@ -1,0 +1,5 @@
+package com.eureka.zuul.security;
+
+public interface SecurityParams {
+
+}

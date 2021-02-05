@@ -1,0 +1,55 @@
+<div class="col-md-16" *ngIf="isTeacher===true">
+    <h4>Student List</h4>
+    <br>
+    <div class="card right-profile">
+
+        <div class="h-tab">
+            <div class="tab">
+
+            </div>
+            <div id="profile" class="tab-content">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="text-primary">
+                            <tr>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Diplome</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let student of member.students">
+                                <td>{{student.firstName}}</td>
+                                <td>{{student.lastName}}</td>
+                                <td>{{student.diplome}}</td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="col-md-16" *ngIf="isTeacher===false">
+    <h4>Teacher</h4>
+    <br>
+    <div >
+
+        <div class="h-tab">
+            <div class="tab">
+
+            </div>
+            <div>
+                <div class="table-responsive">
+                    {{member.teacher.firstName}} {{member.teacher.lastName}}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

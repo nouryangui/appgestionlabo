@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="spring-eureka-gallery">
+<aspect-definition advice-class-name="com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect" advice-method-name="methodsAnnotatedWithHystrixCommand(org.aspectj.lang.ProceedingJoinPoint)" advice-type="AROUND" aspect-end-line-number="-1" aspect-name="hystrixCommandAspect" aspect-start-line-number="-1" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/spring-eureka-gallery/src/main/java/com/eureka/gallery/SpringEurekaGalleryApp.java" pointcut-expression="hystrixCommandAnnotationPointcut() || hystrixCollapserAnnotationPointcut()" proxy-target-class="true">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:spring-eureka-gallery|3:java:com.eureka.gallery.SpringEurekaGalleryApp|8:homeController:19" bean-file="/spring-eureka-gallery/src/main/java/com/eureka/gallery/controllers/HomeController.java" bean-start-line="19" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/spring-eureka-gallery/src/main/java/com/eureka/gallery/SpringEurekaGalleryApp.java" source="=spring-eureka-gallery/C:\/Users\/user\/.m2\/repository\/com\/netflix\/hystrix\/hystrix-javanica\/1.5.12\/hystrix-javanica-1.5.12.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/com.netflix.hystrix=/=/maven.artifactId=/hystrix-javanica=/=/maven.version=/1.5.12=/=/maven.scope=/compile=/&lt;com.netflix.hystrix.contrib.javanica.aop.aspectj(HystrixCommandAspect.class[HystrixCommandAspect~methodsAnnotatedWithHystrixCommand~Lorg.aspectj.lang.ProceedingJoinPoint;" source-start-line="-1" target="=spring-eureka-gallery/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.eureka.gallery.controllers{HomeController.java[HomeController~getGallery~I" target-start-line="38"/>
+</aspect-definition>
+</aop-project>
+<aop-project name="event"/>
+<aop-project name="tool"/>
+<aop-project name="spring-eureka-auth"/>
+<aop-project name="spring-eureka-server"/>
+<aop-project name="spring-eureka-common"/>
+<aop-project name="spring-eureka-zuul"/>
+</aop-reference-model>

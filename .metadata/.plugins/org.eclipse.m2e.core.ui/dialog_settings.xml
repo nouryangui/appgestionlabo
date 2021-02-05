@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="D:\gestionLaboratoirenour\gestionlaboBackend-nour\spring-eureka-auth"/>
+			<item value="D:\gestionLaboratoirenour\gestionlaboBackend-nour\tool"/>
+			<item value="D:\gestionLaboratoirenour\gestionlaboBackend-nour\event"/>
+			<item value="D:\gestionLaboratoirenour\gestionlaboBackend-nour\publication"/>
+			<item value="D:\gestionLaboratoirenour\gestionlaboBackend-nour\member"/>
+			<item value="D:\gestionLaboratoirenour\gestionlaboBackend-nour\spring-eureka-zuul"/>
+			<item value="D:\gestionLaboratoirenour\gestionlaboBackend-nour\spring-eureka-server"/>
+			<item value="D:\gestionLaboratoirenour\gestionlaboBackend-nour\spring-eureka-common"/>
+			<item value="D:\gestionLaboratoirenour\gestionlaboBackend-nour\configServer"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

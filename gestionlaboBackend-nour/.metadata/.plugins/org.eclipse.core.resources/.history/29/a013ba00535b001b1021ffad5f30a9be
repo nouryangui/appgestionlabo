@@ -1,0 +1,5 @@
+package com.eureka.auth.entities;
+
+public class AppUser {
+
+}

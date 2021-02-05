@@ -1,0 +1,14 @@
+<div class="container">
+  <app-navbar title="User Profile" icone="group"></app-navbar>
+  <div class="col-md-4">
+    <div class="card right-profile">
+      <div class="profile">
+        <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="profile" />
+      </div>
+      <h6>{{member.firstName}} {{member.lastName}}</h6>
+      <h4>{{member.birthDate}}</h4>
+     <h5>{{member.diplome}}</h5>
+      <button mat-raised-button class="btn btn-rose btn-round" (click)="open(member.id)">update</button>
+    </div>
+  </div>
+</div>

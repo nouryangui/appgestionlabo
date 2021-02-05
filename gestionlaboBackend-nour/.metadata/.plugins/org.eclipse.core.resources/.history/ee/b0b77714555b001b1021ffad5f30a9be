@@ -1,0 +1,6 @@
+#spring.cloud.config.uri=http://localhost:8090
+
+spring.application.name=auth-service
+#config
+#url du serveur de configuration
+server.port=8081

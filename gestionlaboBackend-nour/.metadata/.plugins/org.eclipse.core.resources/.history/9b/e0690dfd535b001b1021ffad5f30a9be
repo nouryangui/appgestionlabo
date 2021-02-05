@@ -1,0 +1,4 @@
+server.port=8090
+#chemin du dossier qui contient l'ensemble des config
+
+spring.cloud.config.server.git.uri=file://${D:/last_year/BackendSpring}/cloud-conf

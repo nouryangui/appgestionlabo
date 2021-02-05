@@ -1,0 +1,5 @@
+package com.eureka.zuul.config;
+
+public class WebConfigurer {
+
+}

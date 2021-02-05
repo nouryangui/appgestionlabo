@@ -1,0 +1,23 @@
+<div class="col-md-16">
+    <div class="card-content">
+        <h4 class="card-title">Add Member To Tool</h4>
+        <form [formGroup]="form" *ngIf="!!form" (ngSubmit)="onSubmit()" class="form">
+            <div class="row">
+                <div class="col-md-16">
+                    <mat-form-field color="accent">
+                        <mat-select formControlName="member" placeholder="member">
+                            <mat-option *ngFor="let member of members" [value]="member.id">
+                                {{member.firstName}} {{member.lastName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+           
+            <div class="row action-btn" class="col-md-8">
+                <button md-raised-button type="submit" class="btn btn-rose">add</button>
+            </div>
+        </form>
+    </div>
+
+</div>
